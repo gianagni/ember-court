@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Court — a duel of ember cards</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><span class="flame-mark">▲</span> EMBER COURT</div>
+    <div id="turn-info">Ready to duel</div>
+    <div id="score-info"></div>
+    <button id="mute-btn" type="button">Sound: on</button>
+  </header>
+
+  <main id="table">
+    <section id="rival-zone" aria-label="Opponent">
+      <div class="side-panel" id="rival-panel">
+        <div class="portrait" aria-hidden="true">◆</div>
+        <div class="side-name rival-name">Cinder Magistrate</div>
+        <div class="life"><span class="life-num" id="rival-ember">20</span> Ember</div>
+        <div class="shield" id="rival-shield"></div>
+      </div>
+      <div class="hand rival-hand" id="rival-hand"></div>
+    </section>
+
+    <section id="battlefield" aria-label="Battlefield">
+      <div id="ai-intent" aria-live="polite"></div>
+      <div id="played-area"></div>
+      <div id="log" aria-live="polite"></div>
+    </section>
+
+    <section id="player-zone" aria-label="Your hand">
+      <div class="hand player-hand" id="player-hand"></div>
+      <div class="side-panel" id="player-panel">
+        <div class="portrait player-portrait" aria-hidden="true">▲</div>
+        <div class="side-name player-name">You</div>
+        <div class="life"><span class="life-num" id="player-ember">20</span> Ember</div>
+        <div class="shield" id="player-shield"></div>
+        <div id="energy-pips"></div>
+        <button id="end-turn-btn" type="button">End Turn ⏎</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="screen-title" class="screen">
+    <div class="title-mark" aria-hidden="true">▲</div>
+    <h1 class="game-title">EMBER COURT</h1>
+    <p class="tagline">A duel of ember cards against the Cinder Magistrate. First to burn the other to 0 Ember wins.</p>
+    <p class="howto">
+      Four houses, told by colour and shape: <span class="fl">Flame ▲ red</span> burns,
+      <span class="as">Ash ● grey</span> shields, <span class="co">Coal ◆ violet</span> pierces shields,
+      <span class="sp">Spark ★ gold</span> draws and refunds energy.
+      Play a second Flame in one turn for +2 damage (Twin Flame). Ash shield carries to your next turn.
+      Energy grows each turn. Click a card or press 1–5 to play it, Enter to end your turn.
+    </p>
+    <button id="start-btn" class="big-btn" type="button">Enter the Court</button>
+    <p class="hint-line">Keyboard: 1–5 play a card · Enter ends the turn · mouse works too · sound is a tiny synth, no files</p>
+  </div>
+
+  <div id="screen-end" class="screen hidden">
+    <h1 class="end-title" id="end-title"></h1>
+    <p class="end-sub" id="end-sub"></p>
+    <p class="end-stats" id="end-stats"></p>
+    <button id="again-btn" class="big-btn" type="button">Duel Again</button>
+    <p class="hint-line">Press Enter to duel again</p>
+  </div>
+
+  <div id="fx-layer"></div>
+  <p id="status" role="status" aria-live="polite"></p>
+</div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
